@@ -124,6 +124,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Fundo.setBounds(0, 110, 750, 440);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed

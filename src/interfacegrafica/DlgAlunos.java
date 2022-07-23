@@ -366,6 +366,7 @@ public class DlgAlunos extends javax.swing.JDialog {
         Fundo.setBounds(0, 110, 750, 450);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void exibirInformacoes(){

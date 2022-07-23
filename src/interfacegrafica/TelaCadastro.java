@@ -221,6 +221,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         Fundo.setBounds(0, 120, 750, 420);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfdMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdMatriculaActionPerformed
