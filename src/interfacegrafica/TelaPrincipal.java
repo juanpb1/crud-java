@@ -8,10 +8,11 @@ import javabean.Aluno;
 import dadosaluno.ControlaAluno;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
- * @author JuanP
+ * @author Juan e Jarrel
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     
@@ -21,6 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
+        UIManager.put("OptionPane.messageFont", new java.awt.Font("Segoe UI", 1, 14));
         initComponents();
     }
     /**

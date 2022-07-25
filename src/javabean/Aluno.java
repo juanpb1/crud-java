@@ -8,8 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
- * @author JuanP
+ * Essa classe cria o Javabean para ser usado no ArrayList. 
+ * 
+ * @author Juan e Jarrel
  */
 public class Aluno {
     private String nome;

@@ -14,7 +14,7 @@ import javax.swing.text.MaskFormatter;
 
 /**
  *
- * @author JuanP
+ * @author Juan e Jarrel
  */
 public class TelaCadastro extends javax.swing.JFrame {
 
@@ -26,9 +26,9 @@ public class TelaCadastro extends javax.swing.JFrame {
     public TelaCadastro() {
         initComponents();
     }
-    
+
     public TelaCadastro(ControlaAluno ca) {
-         this.ca = ca;
+        this.ca = ca;
         initComponents();
     }
 
@@ -251,33 +251,43 @@ public class TelaCadastro extends javax.swing.JFrame {
         objAluno.setTelefone(tfdTelefone.getText());
         objAluno.setCpf(tfdCPF.getText());
 
-        if (ca.salvarDados(objAluno)) {
-            JOptionPane.showMessageDialog(null, "Dados do aluno cadastrados!");
-            tfdNome.setText("");
-            tfdMatricula.setText("");
-            jDateChooserNasc.setDate(null);
-            tfdIdade.setText("");
-            tfdTelefone.setText("");
-            tfdCPF.setText("");
-            tfdNome.requestFocus();
+        if (objAluno.getNome() == null || objAluno.getMatricula() == null
+                || objAluno.getDataNasc() == null || objAluno.getIdade() == null
+                || objAluno.getTelefone() == null || objAluno.getCpf() == null) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } else {
-            JOptionPane.showMessageDialog(null, "Erro! não foi possível cadastrar o aluno.");
+            if (ca.salvarDados(objAluno)) {
+                JOptionPane.showMessageDialog(null, "Dados do aluno cadastrados!");
+                tfdNome.setText("");
+                tfdMatricula.setText("");
+                jDateChooserNasc.setDate(null);
+                tfdIdade.setText("");
+                tfdTelefone.setText("");
+                tfdCPF.setText("");
+                tfdNome.requestFocus();
+                 this.dispose();
+            } else if (!ca.matriculaIgual(objAluno)) {
+                JOptionPane.showMessageDialog(null, "Erro! matricula ja existente no sistema.");
+            }
         }
-        
-        this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
-    
+
     private void btnTerceiraPosicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerceiraPosicaoActionPerformed
 
-            Aluno objAluno = new Aluno();
-            
-            objAluno.setNome(tfdNome.getText());
-            objAluno.setMatricula(tfdMatricula.getText());
-            objAluno.setDataNasc(jDateChooserNasc.getDate());
-            objAluno.setIdade(tfdIdade.getText());
-            objAluno.setTelefone(tfdTelefone.getText());
-            objAluno.setCpf(tfdCPF.getText());
+        Aluno objAluno = new Aluno();
 
+        objAluno.setNome(tfdNome.getText());
+        objAluno.setMatricula(tfdMatricula.getText());
+        objAluno.setDataNasc(jDateChooserNasc.getDate());
+        objAluno.setIdade(tfdIdade.getText());
+        objAluno.setTelefone(tfdTelefone.getText());
+        objAluno.setCpf(tfdCPF.getText());
+
+        if (objAluno.getNome() == null || objAluno.getMatricula() == null
+                || objAluno.getDataNasc() == null || objAluno.getIdade() == null
+                || objAluno.getTelefone() == null || objAluno.getCpf() == null) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+        } else {
             if (ca.salvarNa3POS(objAluno)) {
                 JOptionPane.showMessageDialog(null, "Dados do aluno cadastrados!");
                 tfdNome.setText("");
@@ -287,12 +297,11 @@ public class TelaCadastro extends javax.swing.JFrame {
                 tfdTelefone.setText("");
                 tfdCPF.setText("");
                 tfdNome.requestFocus();
-            } else{
+                this.dispose();
+            } else if (!ca.matriculaIgual(objAluno)) {
                 JOptionPane.showMessageDialog(null, "Erro! matricula ja existente no sistema.");
             }
-            
-            this.dispose();
-
+        }
     }//GEN-LAST:event_btnTerceiraPosicaoActionPerformed
 
     private void tfdTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdTelefoneActionPerformed

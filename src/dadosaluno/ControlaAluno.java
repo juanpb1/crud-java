@@ -9,13 +9,21 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author JuanP
+ *Classe responsável por salvar e manipular os dados.
+ * 
+ * @author Juan e Jarrel
  */
 public class ControlaAluno {
     
     private ArrayList<Aluno> alunos = new ArrayList();
     
+    
+    /**
+     * Método responsável por salvar os dados passado pelo campos dentro ArrayList.
+     * 
+     * @param salvarDados
+     * @return verdadeiro se os dados foram salvos e falso se os dados não foram salvos.
+     */
     public boolean salvarDados(Aluno alunos){
         if(matriculaIgual(alunos)){
             if(alunos != null){
@@ -25,6 +33,7 @@ public class ControlaAluno {
         }
         return false;
     }
+    
     
     public boolean salvarNa3POS(Aluno alunos){
         if(matriculaIgual(alunos)){

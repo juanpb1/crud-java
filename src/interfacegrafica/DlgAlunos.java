@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author JuanP
+ * @author Juan e Jarrel
  */
 public class DlgAlunos extends javax.swing.JDialog {
 
@@ -429,7 +429,12 @@ public class DlgAlunos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Não existe elemento na terceira posição!");
         }
     }//GEN-LAST:event_btnTerceiroElementoActionPerformed
-
+    
+    /**
+     * Método que retorna para o usuário o primeiro e último elemento.
+     * 
+     * @param btnPrimeiroEUltimoActionPerformed 
+     */
     private void btnPrimeiroEUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroEUltimoActionPerformed
         ArrayList<Aluno> alunos = ca.retornarDados();
         
@@ -473,7 +478,12 @@ public class DlgAlunos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Não existe elementos na lista!");
         }
     }//GEN-LAST:event_btnPrimeiroEUltimoActionPerformed
-
+    
+    /**
+     * Método que remove o último elemento da lista.
+     * 
+     * @param btnRemoverActionPerformed 
+     */
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         ArrayList<Aluno> alunos = ca.retornarDados();
         
@@ -487,7 +497,8 @@ public class DlgAlunos extends javax.swing.JDialog {
         
         this.dispose();
     }//GEN-LAST:event_btnRemoverActionPerformed
-
+    
+   
     private void btnIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdadeActionPerformed
         ArrayList<Aluno> alunos = ca.retornarDados();
         
@@ -547,15 +558,15 @@ public class DlgAlunos extends javax.swing.JDialog {
         try {
             fw = new FileWriter(file);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar os arquivos no formato csv");
+            JOptionPane.showMessageDialog(null, "Erro ao salvar os arquivos no formato csv.");
         }
         
         BufferedWriter bw = new BufferedWriter(fw);
         
         for(int i = 0; i < alunos.size();i++){
             try {
-                bw.write(alunos.get(i).getMatricula()+", ");
-                bw.write(alunos.get(i).getNome()+"   ");
+                bw.write(alunos.get(i).getMatricula()+",");
+                bw.write(alunos.get(i).getNome()+"\t,");
                 bw.write(alunos.get(i).getIdade()+", ");
                 bw.write(dataFormatada.format(alunos.get(i).getDataNasc())+", ");
                 bw.write(alunos.get(i).getTelefone()+", ");
@@ -575,6 +586,7 @@ public class DlgAlunos extends javax.swing.JDialog {
         
         try {
             fw.close();
+            JOptionPane.showMessageDialog(null, "Dados salvos em CSV com sucesso!");
         } catch (IOException ex) {
             //
         }

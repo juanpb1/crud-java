@@ -7,8 +7,10 @@ import interfacegrafica.TelaCadastro;
 import interfacegrafica.TelaPrincipal;
 
 /**
- *
- * @author JuanP
+ * Classe responsável por incializar o programa.
+ * 
+ * 
+ * @author Juan e Jarrel
  */
 public class CadastroAluno {
 
